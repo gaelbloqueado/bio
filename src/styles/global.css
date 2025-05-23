@@ -1,0 +1,41 @@
+:root {
+    /* Tema oscuro espacial */
+    --primary-color: #0f172a;                     /* Azul muy oscuro (Tailwind Slate 900) */
+    --secondary-color: #38bdf8;                   /* Azul cielo brillante (Tailwind Sky 500) */
+    --secondary-color-rgb: 56, 189, 248;          /* Componentes RGB de --secondary-color */
+    --text-color: #e2e8f0;                       /* Gris claro (Tailwind Slate 200) */
+    --text-color-muted: #94a3b8;                /* Gris más suave (Tailwind Slate 400) */
+    --card-bg: rgba(30, 41, 59, 0.8);             /* Azul pizarra oscuro translúcido (Tailwind Slate 800 con alfa) */
+    --button-bg: rgba(51, 65, 85, 0.5);           /* Azul pizarra intermedio (Tailwind Slate 700 con alfa) */
+    --button-hover-bg: rgba(71, 85, 105, 0.65);   /* Hover de botón (Tailwind Slate 600 con alfa) */
+    --shadow-color: rgba(0, 0, 0, 0.7);           /* Sombra pronunciada */
+    --border-color: rgba(100, 116, 139, 0.4);     /* Borde sutil (Tailwind Slate 500 con alfa) */
+    --space-bg-color: #020617;                    /* Fondo del espacio muy oscuro (Tailwind Slate 950) */
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--space-bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#spaceParticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

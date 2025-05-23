@@ -1,0 +1,41 @@
+---
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+
+import '../styles/global.css'; 
+---
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Mi Bio Personal" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/imagen1.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<meta property="og:title" content="GB Bio | Sitio Oficial" />
+        <meta property="og:description" content="Desarrollador de Minecraft, bots de Discord y webs." />
+        <meta property="og:image" content="https://i.imgur.com/YUzp2wR.png" />
+        <meta property="og:url" content="https://gb-bio.com" />
+        <meta property="og:type" content="website" />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	</head>
+	<body>
+        <canvas id="spaceParticles"></canvas>
+		
+        <slot />
+        
+        <script>
+            import "../scripts/effects.js";
+            import "../scripts/space-particles.js";
+        </script>
+	</body>
+</html>

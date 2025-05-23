@@ -1,0 +1,84 @@
+---
+import '../styles/bio-card.css';
+import '../styles/music-player.css';
+import musicURL from '../assets/No Me Pesa - Junior H.mp3'; 
+
+interface Link {
+    text: string;
+    url: string;
+    icon?: string;
+}
+
+interface Props {
+    username: string;
+    avatarUrl: string;
+    description: string;
+    links: Link[];
+    skills?: string[];
+}
+
+const { username, avatarUrl, description, links, skills } = Astro.props;
+---
+
+<div class="bio-card" id="bioCard">
+    <div class="avatar-container">
+        <img src={avatarUrl} alt={`Avatar de ${username}`} class="avatar" />
+    </div>
+    
+    <h1 class="username">
+        <span>@{username}</span>
+        <span class="verification-badge" title="Verificado">
+            <i class="fas fa-check-circle"></i>
+        </span>
+    </h1>
+    
+    <p class="description">{description}</p>
+
+    {skills && skills.length > 0 && (
+        <div class="skills-container">
+            {skills.map(skill => (
+                <span class="skill-tag">{skill}</span>
+            ))}
+        </div>
+    )}
+    
+    <div class="links-container">
+        {links.map(link => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-button">
+                {link.icon && <i class={link.icon}></i>}
+                <span>{link.text}</span>
+            </a>
+        ))}
+    </div>
+
+    <div class="music-player">
+        <audio id="audioPlayer" src={musicURL} preload="metadata"></audio>
+        <button id="playPauseBtn" class="music-control-button">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="music-info">
+            <span id="songTitle">music</span>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+        <button id="volumeBtn" class="music-control-button">
+            <i class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" class="volume-slider">
+    </div>
+
+<footer class="card-footer">
+    <p>
+        <a href="https://github.com/gaelbloqueado" target="_blank" rel="noopener noreferrer">Hecho con ❤️ por {username}</a>
+    </p>
+    <p>
+        <a href="https://www.youtube.com/watch?v=bsRjwww3ofI" target="_blank" rel="noopener noreferrer">Música de Junior H</a>
+    </p>
+</footer>
+
+</div>
+
+<script>
+    import "../scripts/music-player.js";
+</script>

@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import BioCard from '../components/BioCard.astro';
+
+// Personaliza esta información
+const userData = {
+    username: "gaelestabaocupado",
+    avatarUrl: "/imagen.png", 
+    description: "Desarrollador con experiencia en servidores Minecraft, bots de Discord y desarrollo web. Transformo ideas en soluciones digitales eficientes.",
+    links: [
+        { text: "Mi Portafolio", url: "https://gb.fearmc.xyz", icon: "fa-brands fa-dev" },
+        { text: "GitHub", url: "https://github.com/gaelbloqueado", icon: "fab fa-github" },
+        { text: "Discord", url: "https://discord.com/users/gaelbloqueado1", icon: "fab fa-discord" },
+        { text: "Gmail", url: "mailto:gael23885@gmail.com", icon: "fas fa-envelope" },
+    ],
+    skills: ["HTML/Tailwind CSS", "JavaScript", "Astro", "Electron"]
+};
+---
+<MainLayout title={`GB Bio | Sitio Oficial`}>
+	<BioCard 
+        username={userData.username}
+        avatarUrl={userData.avatarUrl}
+        description={userData.description}
+        links={userData.links}
+        skills={userData.skills}
+    />
+</MainLayout>
